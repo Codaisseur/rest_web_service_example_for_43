@@ -1,30 +1,30 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('treelocations', {
+    await queryInterface.createTable("treelocations", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       lat: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL,
       },
       lng: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('treelocations');
-  }
+    await queryInterface.dropTable("treelocations");
+  },
 };

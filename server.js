@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
+const treeRouter = require("./routers/treeRouter")
+const userRouter = require("./routers/userRouter")
+const loggingMiddleWare = require("./middleware/logging")
 
-const { treelocation } = require("./models");
+app.use(express.json()); 
+app.use(loggingMiddleWare) 
 
-app.use(express.json());
-
-app.get("/", async (req, res) => {
-  const trees = await treelocation.findAll();
-  res.send(trees);
-});
+app.use(treeRouter)
+app.use("/user" ,userRouter)
 
 const PORT = 4000;
 

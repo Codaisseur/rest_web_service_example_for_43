@@ -1,15 +1,11 @@
 const express = require("express")
-
 const { Router } = express
-
 const router = new Router()
-
-
-
+const auth = require("../auth/auth")
 const { treelocation } = require("../models");
 
-
-router.get("/" ,async (req, res) => {
+router.get("/" , auth, async (req, res) => {
+    console.log("user info?", req.user)
     const trees = await treelocation.findAll();
     res.send(trees);
   })

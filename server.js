@@ -4,8 +4,9 @@ const treeRouter = require("./routers/treeRouter")
 const userRouter = require("./routers/userRouter")
 const loginRouter = require("./routers/login")
 const loggingMiddleWare = require("./middleware/logging")
+const cors = require("cors")
 
-
+app.use(cors())
 app.use(express.json()); 
 app.use(loggingMiddleWare) 
 
